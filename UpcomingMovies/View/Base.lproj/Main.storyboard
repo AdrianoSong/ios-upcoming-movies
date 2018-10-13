@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fj7-hr-QnI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="QdS-eD-JY9">
+            <objects>
+                <navigationController id="Fj7-hr-QnI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0q2-NP-m28">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QJq-Fi-MJD" kind="relationship" relationship="rootViewController" id="jhk-w8-W12"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceR-rL-zuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="142"/>
+        </scene>
+        <!--Upcoming Movies-->
+        <scene sceneID="YmH-48-xT5">
+            <objects>
+                <viewController id="QJq-Fi-MJD" customClass="MainViewController" customModule="UpcomingMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nEX-eK-mks">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OTA-dL-HQr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-X7-zxY">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OTA-dL-HQr" firstAttribute="bottom" secondItem="b83-bg-YGG" secondAttribute="bottom" id="D76-Wa-rIw"/>
+                            <constraint firstItem="OTA-dL-HQr" firstAttribute="top" secondItem="b83-bg-YGG" secondAttribute="top" id="Ver-Jy-EgM"/>
+                            <constraint firstItem="hPg-X7-zxY" firstAttribute="centerY" secondItem="nEX-eK-mks" secondAttribute="centerY" id="a6g-1l-2zG"/>
+                            <constraint firstItem="OTA-dL-HQr" firstAttribute="trailing" secondItem="b83-bg-YGG" secondAttribute="trailing" id="dMC-Tt-EoW"/>
+                            <constraint firstItem="hPg-X7-zxY" firstAttribute="centerX" secondItem="nEX-eK-mks" secondAttribute="centerX" id="iXG-aF-UhA"/>
+                            <constraint firstItem="OTA-dL-HQr" firstAttribute="leading" secondItem="b83-bg-YGG" secondAttribute="leading" id="lhZ-g5-gpf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b83-bg-YGG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Upcoming Movies" id="zP2-sa-alm"/>
+                    <connections>
+                        <outlet property="activityLoading" destination="hPg-X7-zxY" id="aBi-Wc-89w"/>
+                        <outlet property="moviesTableView" destination="OTA-dL-HQr" id="D0O-UO-xZ3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3L-0o-eih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965.60000000000002" y="141.67916041979012"/>
+        </scene>
+    </scenes>
+</document>
