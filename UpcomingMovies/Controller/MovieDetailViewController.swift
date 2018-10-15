@@ -22,6 +22,8 @@ class MovieDetailViewController: UIViewController {
     
     var myMovie: MovieViewModel?
     var movieDetail: MovieDetailViewModel?
+    
+    var movieDetailPresenter: MovieDetailPresenter?
 
     //MARK: - ViewController lifecycle
     
@@ -30,11 +32,15 @@ class MovieDetailViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
         
-        callMovieDetail {
+        movieDetailPresenter = MovieDetailPresenter()
+        
+        movieDetailPresenter?.callMovieDetail(myMovie: myMovie) { movieDetailVM in
             
-            DispatchQueue.main.async {
+            self.movieDetail = movieDetailVM
+
+            DispatchQueue.main.async { [weak self] in
             
-                self.setupViewController()
+                self?.setupViewController()
             }
         }
     }
@@ -42,23 +48,6 @@ class MovieDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: - Internal functions
-    
-    fileprivate func callMovieDetail(completion: @escaping () -> ()){
-        
-        if let movieId = myMovie?.movieId {
-            MyHTTPRequester.getMovieDetail(id: movieId) { (movieDetail) in
-                
-                guard let myMovieDetail = movieDetail else {
-                    return
-                }
-                
-                self.movieDetail = MovieDetailViewModel(movieDetail: myMovieDetail)
-                completion()
-            }
-        }
     }
     
     fileprivate func setupViewController(){
@@ -79,8 +68,8 @@ class MovieDetailViewController: UIViewController {
 
         MyHTTPRequester.getImageFromWeb(stringURL: Constants.BASE_IMG_URL + posterStringURL, imageScale: 2.5) { (myImage) in
 
-            DispatchQueue.main.async {
-                self.imagePoster.image = myImage
+            DispatchQueue.main.async { [weak self] in
+                self?.imagePoster.image = myImage
             }
         }
     }

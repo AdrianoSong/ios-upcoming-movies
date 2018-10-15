@@ -29,10 +29,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         mainPresenter.fetchMovies(page: page) {
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 
-                self.showOrHideActivityLoading(hidden: true)
-                self.setupTableView()
+                self?.showOrHideActivityLoading(hidden: true)
+                self?.setupTableView()
             }
         }
     }
@@ -57,7 +57,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.moviesTableView.reloadData()
     }
     
-    fileprivate func setupNavigationBar(){
+    fileprivate func setupNavigationBar() {
         
         searchNavigationController.searchResultsUpdater = self
         searchNavigationController.obscuresBackgroundDuringPresentation = false
@@ -80,11 +80,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             page += 1
             mainPresenter.fetchMovies(page: page) {
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { [weak self] in
                     
-                    self.showOrHideActivityLoading(hidden: true)
-                    self.mainPresenter.fetchMoreMovies = false
-                    self.moviesTableView.reloadData()
+                    self?.showOrHideActivityLoading(hidden: true)
+                    self?.mainPresenter.fetchMoreMovies = false
+                    self?.moviesTableView.reloadData()
                 })
             }
         }
@@ -94,9 +94,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateSearchResults(for searchController: UISearchController) {
         
-        mainPresenter.filterSearchedMovies(userText: searchController.searchBar.text) {
+        mainPresenter.filterSearchedMovies(userText: searchController.searchBar.text) { [weak self] in
             
-            self.moviesTableView.reloadData()
+            self?.moviesTableView.reloadData()
         }
     }
     

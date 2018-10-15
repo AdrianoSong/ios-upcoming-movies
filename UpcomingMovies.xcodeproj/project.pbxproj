@@ -28,6 +28,7 @@
 		E4CCB3DD215DCC7B005A2B60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCB3DC215DCC7B005A2B60 /* Constants.swift */; };
 		E4CCB3E0215DD939005A2B60 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CCB3DE215DD939005A2B60 /* MovieTableViewCell.swift */; };
 		E4CCB3E1215DD939005A2B60 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4CCB3DF215DD939005A2B60 /* MovieTableViewCell.xib */; };
+		E4DE114D21755C3E00FC83AB /* MovieDetailPresesnter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE114C21755C3E00FC83AB /* MovieDetailPresesnter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		E4CCB3DC215DCC7B005A2B60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4CCB3DE215DD939005A2B60 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		E4CCB3DF215DD939005A2B60 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		E4DE114C21755C3E00FC83AB /* MovieDetailPresesnter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresesnter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E4C4D43D215FF15C00ED803C /* MainPresenter.swift */,
+				E4DE114C21755C3E00FC83AB /* MovieDetailPresesnter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				E4AB1A98215F878600EF29F1 /* MovieDetail.swift in Sources */,
 				E41763DF215F06A80074EB60 /* MovieDetailViewController.swift in Sources */,
 				E4CCB3DB215DAD83005A2B60 /* Movie.swift in Sources */,
+				E4DE114D21755C3E00FC83AB /* MovieDetailPresesnter.swift in Sources */,
 				E4AB1A9C215FBF6A00EF29F1 /* SearchBarUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

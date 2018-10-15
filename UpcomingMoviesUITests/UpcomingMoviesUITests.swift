@@ -71,5 +71,4 @@ class UpcomingMoviesUITests: XCTestCase {
         
         app.navigationBars["Rio 2"].buttons["Upcoming Movies"].tap()
     }
-    
 }
